@@ -145,7 +145,7 @@ export class BottomPanel {
     }
 
     async openExternalLink(url) {
-        if (discordSDK.available()) {
+        if (discordSDK.available() && discordSDK.isSDKReady()) {
             await discordSDK.openExternalLink(url);
         } else {
             try {
