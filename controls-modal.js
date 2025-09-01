@@ -233,4 +233,30 @@ export const controlsModalCSS = `
   font-size: 13px;
   font-weight: 400;
 }
+
+@media (max-width: 600px) {
+  .controls-container {
+    width: 240px;
+  }
+  .controls-header {
+    padding: 8px 10px;
+  }
+  .controls-body {
+    padding: 10px;
+  }
+  .control-row {
+    padding: 5px 6px;
+  }
+  .control-key {
+    padding: 3px 6px;
+    min-width: 40px;
+  }
+}
+
+@media (max-width: 370px) {
+  #controls-modal {
+    bottom: 50px;
+    left: 10px;
+  }
+}
 `; 

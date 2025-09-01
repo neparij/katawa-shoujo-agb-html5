@@ -30,6 +30,9 @@ export class BottomPanel {
                         <button id="virtual-controls-toggle-btn" class="action-btn">
                             <i class="fa-solid fa-mobile-screen-button"></i> <span>Touch</span>
                         </button>
+<!--                        <button id="preferences-toggle-btn" class="action-btn">-->
+<!--                            <i class="fa-solid fa-gear"></i> <span>Preferences</span>-->
+<!--                        </button>-->
                     </div>
                     
                     <div id="right-actions">
@@ -104,6 +107,11 @@ export class BottomPanel {
     initializeControlsModal() {
         this.controlsModal = new ControlsModal();
         this.virtualControls = new VirtualControls();
+
+        if (this.virtualControls.isEnabled) {
+            this.controlsModal.hide();
+            // this.controlsShowBtn.classList.add('hidden');
+        }
     }
 
     toggleControls() {
@@ -115,6 +123,13 @@ export class BottomPanel {
     toggleVirtualControls() {
         if (this.virtualControls) {
             this.virtualControls.toggle();
+
+            if (this.virtualControls.isEnabled) {
+                this.controlsModal.hide();
+                // this.controlsShowBtn.classList.add('hidden');
+            } else {
+                // this.controlsShowBtn.classList.remove('hidden');
+            }
         }
     }
 
@@ -205,6 +220,7 @@ export const bottomPanelCSS = `
   transition: all 0.2s ease;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   min-width: 48px;
   height: 48px;
@@ -251,7 +267,30 @@ export const bottomPanelCSS = `
     display: none;
   }
   .action-btn {
+    padding: 0px 0px;
     font-size: 24px;
+  }
+}
+
+@media (max-width: 370px) {
+  #bottom-actions {
+    padding: 10px;
+  }
+  
+  .action-btn span {
+    display: none;
+  }
+  .action-btn {
+    padding: 0px 0px;
+    font-size: 16px;
+    height: 32px;
+    min-width: 32px;
+  }
+  
+  .icon-btn {
+    font-size: 16px;
+    height: 32px;
+    min-width: 32px;
   }
 }
 

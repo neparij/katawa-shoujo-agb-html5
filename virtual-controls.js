@@ -11,7 +11,7 @@ export class VirtualControls {
 
     detectMobile() {
         return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
-               window.innerWidth <= 768 ||
+               window.innerWidth <= 600 ||
                'ontouchstart' in window;
     }
 
